@@ -1,0 +1,18 @@
+{
+    "standard": "WCAG2AAA",
+    "level": "error",
+    "defaults": {
+      "timeout": 1000,
+      "page": {
+        "viewport": {
+          "width": 320,
+          "height": 480
+        }
+      },
+      "wait": 2000,
+      "ignore": []
+    },
+    "urls": [
+        "http://localhost:4200/"
+    ]
+  }
