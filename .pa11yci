@@ -1,18 +1,18 @@
-{
+{ "defaults": {
     "standard": "WCAG2AAA",
-    "level": "error",
-    "defaults": {
-      "timeout": 1000,
-      "page": {
-        "viewport": {
-          "width": 320,
-          "height": 480
-        }
-      },
-      "wait": 2000,
-      "ignore": []
+    "timeout": 10000,
+    "wait": 2000,
+    "page": {
+      "viewport": {
+        "width": 320,
+        "height": 480
+      }
     },
-    "urls": [
-        "http://localhost:4200/"
+    "actions": [
+      "wait for element #group-img to be visible"
     ]
-  }
+  },
+  "urls": [
+    "http://localhost:4200"
+  ]
+}
