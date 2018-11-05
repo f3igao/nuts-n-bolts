@@ -1,6 +1,6 @@
 { "defaults": {
     "standard": "WCAG2AAA",
-    "timeout": 10000,
+    "timeout": 100000,
     "wait": 2000,
     "page": {
       "viewport": {
