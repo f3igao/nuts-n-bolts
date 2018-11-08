@@ -7,6 +7,8 @@
     ]
   },
   "urls": [
-    "http://localhost:4200"
+    "http://localhost:4200",
+    "http://localhost:4200/home",
+    "http://localhost:4200/404"
   ]
 }
