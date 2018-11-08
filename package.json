@@ -9,19 +9,18 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "pa11y": "pa11y --standard WCAG2AAA http://localhost:4200",
-    "preaccessibility": "ng build --prod",
-    "accessibility": "npm-run-all --parallel --race server accessibility:run",
-    "accessibility:run": "pa11y-ci --threshold 250",
-    "server": "node ./server.js"
+    "pa11y-ci": "pa11y-ci"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^6.0.2",
+    "@angular/animations": "^7.0.3",
+    "@angular/cdk": "^7.0.3",
     "@angular/common": "^6.0.2",
     "@angular/compiler": "^6.0.2",
     "@angular/core": "^6.0.2",
     "@angular/forms": "^6.0.2",
     "@angular/http": "^6.0.2",
+    "@angular/material": "^7.0.3",
     "@angular/platform-browser": "^6.0.2",
     "@angular/platform-browser-dynamic": "^6.0.2",
     "@angular/router": "^6.0.2",
@@ -33,7 +32,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.3",
-    "@angular/cli": "~6.0.3",
+    "@angular/cli": "~7.0.4",
     "@angular/compiler-cli": "^6.0.2",
     "@angular/language-service": "^6.0.2",
     "@types/jasmine": "~2.8.6",

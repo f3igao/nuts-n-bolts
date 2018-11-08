@@ -2,12 +2,6 @@
     "standard": "WCAG2AAA",
     "timeout": 100000,
     "wait": 2000,
-    "page": {
-      "viewport": {
-        "width": 320,
-        "height": 480
-      }
-    },
     "actions": [
       "wait for element #group-img to be visible"
     ]
