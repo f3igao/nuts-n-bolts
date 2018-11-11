@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/core/services/http/api.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 import { ITodo } from 'src/app/models/todo.interface';
 
@@ -10,14 +10,23 @@ import { ITodo } from 'src/app/models/todo.interface';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
-  todos: Observable<ITodo[]>;
+  todos: ITodo[];
 
   constructor(
     private apiService: ApiService,
   ) { }
 
   ngOnInit() {
-    this.todos = this.apiService.getToDos();
+    this.apiService.getToDos().subscribe(data => {
+      this.todos = data;
+    });
   }
 
+  reorder(event: CdkDragDrop<ITodo>) {
+    moveItemInArray(
+      this.todos,
+      event.previousIndex,
+      event.currentIndex
+    );
+  }
 }

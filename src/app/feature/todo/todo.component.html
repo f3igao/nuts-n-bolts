@@ -1,8 +1,11 @@
-<pre>
+<div class="ml3">
+    <h1>To Do List</h1>
+    <ul cdkDrop (cdkDropDropped)="reorder($event)">
+      <li *ngFor="let item of todos" cdkDrag>
+        {{ item.title }}
+      </li>
+    </ul>
+</div>
 
-  {{todos | async | json}}
-</pre>
 
-<ul>
-  <li>test</li>
-</ul>
+<!-- [ngClass]="item.complete ? 'green' : 'red'"  -->
