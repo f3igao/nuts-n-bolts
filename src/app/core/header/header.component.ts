@@ -25,8 +25,8 @@ export class HeaderComponent {
     this.router.navigate(['/']);
   }
 
-  routeToContact() {
-    this.router.navigate(['/contact']);
+  routeToTodo() {
+    this.router.navigate(['/todo']);
   }
 
 }

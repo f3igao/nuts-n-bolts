@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
@@ -18,8 +20,9 @@ import { HeaderComponent } from './header/header.component';
     MatIconModule,
     MatListModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent],
 })
 export class CoreModule { }
