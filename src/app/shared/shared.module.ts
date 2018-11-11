@@ -28,4 +28,4 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   exports: [HomeComponent, MainNavComponent]
 })
-export class CoreModule { }
+export class SharedModule { }
