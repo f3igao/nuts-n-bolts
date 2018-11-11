@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -15,6 +16,17 @@ export class MainNavComponent {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private router: Router,
+    ) {}
+
+  routeToHome() {
+    this.router.navigate(['/']);
+  }
+
+  routeToContact() {
+    this.router.navigate(['/contact']);
+  }
 
 }

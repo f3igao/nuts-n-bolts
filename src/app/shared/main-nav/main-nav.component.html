@@ -20,31 +20,28 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button> -->
-      <span>The Internet is for Everyone</span>
+      <span class="pointer" (click)="routeToHome()">The Internet is for Everyone</span>
     </mat-toolbar>
 
     <nav class="w-100 bg-light-gray">
-      <button mat-button [matMenuTriggerFor]="menu">About</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
-      <button mat-button [matMenuTriggerFor]="menu">Movies</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
-      <button mat-button [matMenuTriggerFor]="menu">Books</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
-      <button mat-button [matMenuTriggerFor]="menu">Contact</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>Item 1</button>
-        <button mat-menu-item>Item 2</button>
-      </mat-menu>
-    </nav>
+        <button mat-button [matMenuTriggerFor]="menuAbout">About</button>
+        <mat-menu #menuAbout="matMenu">
+          <button mat-menu-item>A11y</button>
+          <button mat-menu-item>WCAG</button>
+          <button mat-menu-item>FAQs</button>
+        </mat-menu>
+        <button mat-button [matMenuTriggerFor]="menuMovies">Movies</button>
+        <mat-menu #menuMovies="matMenu">
+          <button mat-menu-item>What's Hot</button>
+          <button mat-menu-item>My List</button>
+        </mat-menu>
+        <button mat-button [matMenuTriggerFor]="menuBooks">Books</button>
+        <mat-menu #menuBooks="matMenu">
+          <button mat-menu-item>What's Good</button>
+          <button mat-menu-item>My List</button>
+        </mat-menu>
+        <button mat-button (click)="routeToContact()">Contact</button>
+      </nav>
 
   </mat-sidenav-content>
 </mat-sidenav-container>
