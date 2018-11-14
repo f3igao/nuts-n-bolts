@@ -9,6 +9,7 @@
   "urls": [
     "http://localhost:4200",
     "http://localhost:4200/todo",
+    "http://localhost:4200/signup",
     "http://localhost:4200/404"
   ]
 }

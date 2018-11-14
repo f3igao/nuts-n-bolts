@@ -29,4 +29,8 @@ export class HeaderComponent {
     this.router.navigate(['/todo']);
   }
 
+  routeToSignup() {
+    this.router.navigate(['/signup']);
+  }
+
 }
