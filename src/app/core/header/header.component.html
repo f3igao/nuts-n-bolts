@@ -30,18 +30,21 @@
             <button mat-menu-item>WCAG</button>
             <button mat-menu-item>FAQs</button>
           </mat-menu>
-          <button mat-button [matMenuTriggerFor]="menuMovies">Movies</button>
-          <mat-menu #menuMovies="matMenu">
-            <button mat-menu-item>In Theaters Now</button>
-            <button mat-menu-item>Watchlist</button>
-            <button mat-menu-item>Favorites</button>
+          <!-- <button mat-button [matMenuTriggerFor]="menuImages">Images</button>
+          <mat-menu #menuImages="matMenu">
+            <button mat-menu-item>Good Examples</button>
+            <button mat-menu-item>Bad Examples</button>
+          </mat-menu> -->
+          <button mat-button [matMenuTriggerFor]="menuForms">Forms</button>
+          <mat-menu #menuForms="matMenu">
+            <button mat-menu-item (click)="routeToSignUp()">Sign Up</button>
+            <!-- <button mat-menu-item>Bad Examples</button> -->
           </mat-menu>
-          <button mat-button [matMenuTriggerFor]="menuBooks">Books</button>
-          <mat-menu #menuBooks="matMenu">
-            <button mat-menu-item>Best Sellers</button>
-            <button mat-menu-item>Reading List</button>
+          <button mat-button [matMenuTriggerFor]="menuLists">Lists</button>
+          <mat-menu #menuLists="matMenu">
+            <button mat-menu-item (click)="routeToTodo()">To Do List</button>
+            <!-- <button mat-menu-item>Bad Examples</button> -->
           </mat-menu>
-          <button mat-button (click)="routeToTodo()">To Do List</button>
         </nav>
 
     </mat-sidenav-content>

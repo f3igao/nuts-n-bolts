@@ -1,11 +1,20 @@
+
+
 <div class="ml3">
-    <h1>To Do List</h1>
-    <ul cdkDrop (cdkDropDropped)="reorder($event)">
-      <li *ngFor="let item of todos" cdkDrag>
-        {{ item.title }}
-      </li>
-    </ul>
+  <h1>To Do List</h1>
+  <p>
+    Number of tasks done: {{ todoList.selectedOptions.selected.length }}
+  </p>
+
+  <mat-selection-list #todoList>
+    <mat-list-option *ngFor="let item of todos">
+      {{ item.title }}
+    </mat-list-option>
+  </mat-selection-list>
 </div>
+
+
+
 
 
 <!-- [ngClass]="item.complete ? 'green' : 'red'"  -->
