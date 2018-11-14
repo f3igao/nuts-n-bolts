@@ -1,16 +1,16 @@
-
-
 <div class="ml3">
   <h1>To Do List</h1>
   <p>
     Number of tasks done: {{ todoList.selectedOptions.selected.length }}
   </p>
 
-  <mat-selection-list #todoList>
-    <mat-list-option *ngFor="let item of todos">
-      {{ item.title }}
-    </mat-list-option>
-  </mat-selection-list>
+  <div class="w-80 ba br4 bw1 b--moon-gray shadow-4">
+    <mat-selection-list #todoList>
+      <mat-list-option *ngFor="let item of todos">
+        {{ item.title }}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
 </div>
 
 

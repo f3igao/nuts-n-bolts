@@ -1,15 +1,25 @@
-{ "defaults": {
+{
+  "defaults": {
     "standard": "WCAG2AAA",
-    "timeout": 100000,
-    "wait": 2000,
-    "actions": [
-      "wait for element #group-img to be visible"
-    ]
+    "timeout": 20000,
+    "threshold": 5
   },
   "urls": [
-    "http://localhost:4200",
-    "http://localhost:4200/todo",
-    "http://localhost:4200/signup",
-    "http://localhost:4200/404"
+    {
+      "url": "http://localhost:4200",
+      "actions": [
+        "wait for element #group-img to be visible"
+      ],
+      "screenCapture": "screenshots/home.png"
+    },
+    {
+      "url": "http://localhost:4200/todo",
+      "screenCapture": "screenshots/stodo.png",
+      "timeout": 60000
+    },
+    {
+      "url": "http://localhost:4200/signup",
+      "screenCapture": "screenshots/signup.png"
+    }
   ]
 }

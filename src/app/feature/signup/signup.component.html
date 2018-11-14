@@ -1,27 +1,25 @@
-<h1>Sign Up Form - Good</h1>
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-    <label>
-      Username:
-      <input type="text" formControlName="username">
-    </label>
-    <label>
-      Password:
-      <input type="password" formControlName="password">
-    </label>
+<div class="ml3">
+  <h1>Sign Up Form</h1>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <label>
+        Username:
+        <input type="text" formControlName="username">
+      </label>
+      <label>
+        Password:
+        <input type="password" formControlName="password">
+      </label>
+      <button type="submit">Submit</button>
+  </form>
 
-    <button type="submit">Submit</button>
-</form>
+  <!-- <h1>Sign Up Form - What not to do</h1>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        Username:
+        <input type="text" formControlName="username">
 
-<h1>Sign Up Form - Bad</h1>
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        Password:
+        <input type="password" formControlName="password">
 
-      Username:
-      <input type="text" formControlName="username">
-
-
-      Password:
-      <input type="password" formControlName="password">
-
-
-    <button type="submit">Submit</button>
-</form>
+      <button>Submit</button>
+  </form> -->
+</div>
