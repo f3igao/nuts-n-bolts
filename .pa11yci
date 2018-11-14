@@ -10,16 +10,19 @@
       "actions": [
         "wait for element #group-img to be visible"
       ],
-      "screenCapture": "screenshots/home.png"
+      "screenCapture": "pa11y-screenshots/home.png"
     },
     {
       "url": "http://localhost:4200/todo",
-      "screenCapture": "screenshots/stodo.png",
+      "screenCapture": "pa11y-screenshots/todo.png",
+      "actions": [
+        "wait for element #signup-form to be visible"
+      ],
       "timeout": 60000
     },
     {
       "url": "http://localhost:4200/signup",
-      "screenCapture": "screenshots/signup.png"
+      "screenCapture": "pa11y-screenshots/signup.png",
     }
   ]
 }
