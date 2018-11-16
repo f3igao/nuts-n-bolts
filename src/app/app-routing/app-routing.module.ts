@@ -9,7 +9,7 @@ import { PageNotFoundComponent } from '../shared/page-not-found/page-not-found.c
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', redirectTo: '' },
   { path: 'todo', component: TodoComponent },
   { path: 'signup', component: SignupComponent },
   { path: '404', component: PageNotFoundComponent },

@@ -1,6 +1,6 @@
 <div class="ml3">
   <h1>To Do List</h1>
-  <p>
+  <!-- <p>
     Number of tasks done: {{ todoList.selectedOptions.selected.length }}
   </p>
 
@@ -10,7 +10,13 @@
         {{ item.title }}
       </mat-list-option>
     </mat-selection-list>
-  </div>
+  </div> -->
+
+  <ul class="w-75 list pa3 ba br4 bw1 b--moon-gray shadow-4">
+    <li class="pv2" *ngFor="let item of todos">
+        {{ item.title }}
+    </li>
+  </ul>
 </div>
 
 
