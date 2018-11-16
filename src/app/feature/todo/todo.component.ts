@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/core/services/http/api.service';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+// import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 import { ITodo } from 'src/app/models/todo.interface';
 
@@ -19,6 +19,7 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
     this.apiService.getToDos().subscribe(data => {
       this.todos = data.slice(0, 10);
+      console.log(data.slice(0, 20));
     });
   }
 
