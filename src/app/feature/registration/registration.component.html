@@ -1,6 +1,7 @@
 <div class="mh4">
   <h1>Register Your Robot</h1>
   <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()" class="flex flex-column">
+
     <label>
       Name
       <input type="text" formControlName="name">
@@ -10,16 +11,10 @@
       <input type="date" formControlName="dob">
     </label>
 
-    <select formControlName="intel">
-      <option *ngFor="let intel of intelOptions" [value]="intel.name">
-        {{ intel.name }}
-      </option>
-    </select>
-
     <fieldset class="ph0 bn">
       <legend>Division</legend>
       <label *ngFor="let division of divisionOptions">
-        <input type="radio" formControlName="division" [value]="division.name">
+        <input type="radio" formControlName="division" [value]="division.value">
         {{ division.name }}
       </label>
     </fieldset>
@@ -32,9 +27,14 @@
       </label>
     </fieldset>
 
-
-
-    <!-- Intelligence Level (custom radio - ANI, AGI, ASI) - custom dropdown -->
+    <div>
+      <p>How would you rate your robot's current level of intelligence?</p>
+      <select formControlName="intel">
+        <option *ngFor="let intel of intelOptions" [value]="intel.value">
+          {{ intel.name }}
+        </option>
+      </select>
+    </div>
 
 
     <div>

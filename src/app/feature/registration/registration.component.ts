@@ -12,25 +12,30 @@ export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
   registrationFormValues: IRegistrationFormValues;
   capabilityOptions: IOption[] = [
-    { id: 1, name: 'Perform Repetitive Acts', selected: false},
-    { id: 2, name: 'Chess', selected: false },
-    { id: 3, name: 'Drawing', selected: false },
-    { id: 4, name: 'Music Composition', selected: false },
-    { id: 5, name: 'Analyze Human Emotions', selected: false },
+    { id: 1, name: 'Packaging', value: 'packaging', selected: false},
+    { id: 2, name: 'Chess', value: 'chess', selected: false },
+    { id: 3, name: 'Drawing', value: 'drawing', selected: false },
+    { id: 4, name: 'Music Composition', value: 'music', selected: false },
+    { id: 5, name: 'Analyze Human Emotions', value: 'emotions', selected: false },
+    { id: 6, name: 'Telemanipulation', value: 'telemanipulation', selected: false },
+    { id: 7, name: 'Welding', value: 'welding', selected: false },
+    { id: 8, name: 'Painting', value: 'painting', selected: false },
+    { id: 9, name: 'Vacuuming', value: 'vacuuming', selected: false },
+    { id: 10, name: 'Poetry', value: 'poetry', selected: false },
   ];
   divisionOptions: IOption[] = [
-    { id: 1, name: 'Industrial' },
-    { id: 2, name: 'Domestic / Household' },
-    { id: 3, name: 'Medical' },
-    { id: 4, name: 'Service' },
-    { id: 5, name: 'Military' },
-    { id: 6, name: 'Entertainment' },
-    { id: 7, name: 'Space' },
+    { id: 1, name: 'Industrial', value: 'industrial' },
+    { id: 2, name: 'Domestic / Household', value: 'domestic' },
+    { id: 3, name: 'Medical', value: 'medical' },
+    { id: 4, name: 'Service', value: 'service' },
+    { id: 5, name: 'Military', value: 'military' },
+    { id: 6, name: 'Entertainment', value: 'entertainment' },
+    { id: 7, name: 'Space', value: 'space' },
   ];
   intelOptions: IOption[] = [
-    { id: 1, name: 'Artificial Narrow Intelligence (ANI)' },
-    { id: 2, name: 'Artificial General Intelligence (AGI)' },
-    { id: 3, name: 'Artificial Superintelligence (ASI)' },
+    { id: 1, name: 'Artificial Narrow Intelligence (ANI)', value: 'ani' },
+    { id: 2, name: 'Artificial General Intelligence (AGI)', value: 'agi' },
+    { id: 3, name: 'Artificial Superintelligence (ASI)', value: 'asi' },
   ];
   constructor(private fb: FormBuilder) { }
 
@@ -44,19 +49,7 @@ export class RegistrationComponent implements OnInit {
     });
 
     this.registrationForm.valueChanges.subscribe(value => {
-      const newCapabilities = value.capabilities.map((selected: IOption, i: number) => {
-        return {
-          id: this.capabilityOptions[i].id,
-          name: this.capabilityOptions[i].name,
-          selected: selected,
-        };
-      });
-
-      // const newDivision = value.division ? this.divisionOptions[value.division].name : null;
-
-      // const newIntel = value.intel ? this.intelOptions[value.intel].name : null;
-
-      this.registrationFormValues = {...value, capabilities: newCapabilities};
+      this.registrationFormValues = {...value, capabilities: this.updateCapabilities(value.capabilities)};
       console.log(this.registrationFormValues);
     });
   }
@@ -65,6 +58,11 @@ export class RegistrationComponent implements OnInit {
     return this.capabilityOptions.map((capabilitiy: IOption) => new FormControl(capabilitiy.selected));
   }
 
+  updateCapabilities(selections: boolean[]): string[] {
+    return selections
+    .filter((selection: boolean) => selection)
+    .map((_selection: boolean, i: number) => this.capabilityOptions[i].value);
+  }
 
   onSubmit(): void {
     console.log(this.registrationFormValues);
