@@ -1,6 +1,7 @@
-<div class="ml3">
+<div class="mh4">
   <h1>Sign Up Form</h1>
   <form [formGroup]="signupForm" id="signupForm" (ngSubmit)="onSubmit()">
+  <!-- input fields -->
       <label>
         Username:
         <input type="text" formControlName="username">
@@ -9,6 +10,26 @@
         Password:
         <input type="password" formControlName="password">
       </label>
+  <!-- custom checkboxes -->
+      <label class="container">One
+          <input type="checkbox" checked="checked">
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="container">Two
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="container">Three
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
+
+        <label class="container">Four
+          <input type="checkbox">
+          <span class="checkmark"></span>
+        </label>
       <button type="submit">Submit</button>
   </form>
 
@@ -22,4 +43,6 @@
 
       <button>Submit</button>
   </form> -->
+
+
 </div>
