@@ -1,12 +1,13 @@
-export class IInterest {
+export class IOption {
   id: number;
   name: string;
-  selected: boolean;
+  selected?: boolean;
 }
 
 export class IRegistrationFormValues {
   name: string;
   dob: string;
-  type: string;
-  interests: IInterest[];
+  intel: string;
+  division: string;
+  capabilities: IOption[];
 }

@@ -1,61 +1,45 @@
 <div class="mh4">
-  <h1>Register Your Pet</h1>
+  <h1>Register Your Robot</h1>
   <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()" class="flex flex-column">
     <label>
       Name
       <input type="text" formControlName="name">
     </label>
     <label>
-      Date of Birth
+      Date of Build
       <input type="date" formControlName="dob">
     </label>
-    <label formArrayName="interests" *ngFor="let interest of registrationForm.controls.interests.controls; let i = index">
-      <input type="checkbox" [formControlName]="i">
-      {{ interests[i].name }}
-    </label>
 
+    <select formControlName="intel">
+      <option *ngFor="let intel of intelOptions" [value]="intel.name">
+        {{ intel.name }}
+      </option>
+    </select>
 
-    <!-- <fieldset>
-      <legend>Gender (custom radio):</legend>
-      <p>
-        <input type="radio" name="size" id="size_1" value="small">
-        <label for="size_1">Small</label>
-      </p>
-      <p>
-        <input type="radio" name="size" id="size_2" value="medium">
-        <label for="size_2">Medium</label>
-      </p>
-      <p>
-        <input type="radio" name="size" id="size_3" value="large">
-        <label for="size_3">Large</label>
-      </p>
+    <fieldset class="ph0 bn">
+      <legend>Division</legend>
+      <label *ngFor="let division of divisionOptions">
+        <input type="radio" formControlName="division" [value]="division.name">
+        {{ division.name }}
+      </label>
+    </fieldset>
+
+    <fieldset class="flex ph0 bn">
+      <legend>Capabilities</legend>
+      <label formArrayName="capabilities" *ngFor="let capability of registrationForm.controls.capabilities.controls; let i = index">
+        <input type="checkbox" [formControlName]="i">
+        {{ capabilityOptions[i].name }}
+      </label>
     </fieldset>
 
 
 
-    Interests (custom checkbox)
-    <label class="container">One
-      <input type="checkbox" checked="checked">
-      <span class="checkmark"></span>
-    </label>
-
-    <label class="container">Two
-      <input type="checkbox">
-      <span class="checkmark"></span>
-    </label>
-
-    <label class="container">Three
-      <input type="checkbox">
-      <span class="checkmark"></span>
-    </label>
-
-    <label class="container">Four
-      <input type="checkbox">
-      <span class="checkmark"></span>
-    </label> -->
+    <!-- Intelligence Level (custom radio - ANI, AGI, ASI) - custom dropdown -->
 
 
+    <div>
       <button type="submit">Submit</button>
+    </div>
   </form>
 
 </div>
