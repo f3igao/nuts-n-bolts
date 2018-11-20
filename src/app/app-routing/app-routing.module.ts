@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from '../shared/home/home.component';
+import { PageNotFoundComponent } from '../shared/page-not-found/page-not-found.component';
 import { TodoComponent } from '../feature/todo/todo.component';
 import { SignupComponent } from '../feature/signup/signup.component';
-import { PageNotFoundComponent } from '../shared/page-not-found/page-not-found.component';
+import { RegistrationComponent } from './../feature/registration/registration.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'home', redirectTo: '' },
   { path: 'todo', component: TodoComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'registration', component: RegistrationComponent },
   { path: '404', component: PageNotFoundComponent },
   { path: '**', redirectTo: '404' },
 ];

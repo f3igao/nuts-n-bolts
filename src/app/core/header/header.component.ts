@@ -33,4 +33,8 @@ export class HeaderComponent {
     this.router.navigate(['/signup']);
   }
 
+  routeToRegistration() {
+    this.router.navigate(['/registration']);
+  }
+
 }
