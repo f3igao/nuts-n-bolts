@@ -12,11 +12,11 @@ export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
   registrationFormValues: IRegistrationFormValues;
   interests = [
-    { id: 1, name: 'eating', selected: false},
-    { id: 2, name: 'dancing', selected: false },
-    { id: 3, name: 'sleeping', selected: false },
-    { id: 3, name: 'watching TV', selected: false },
-    { id: 3, name: 'running', selected: false },
+    { id: 1, name: 'Eating', selected: false},
+    { id: 2, name: 'Dancing', selected: false },
+    { id: 3, name: 'Sleeping', selected: false },
+    { id: 3, name: 'Watching TV', selected: false },
+    { id: 3, name: 'Running', selected: false },
   ];
 
   constructor(private fb: FormBuilder) { }
