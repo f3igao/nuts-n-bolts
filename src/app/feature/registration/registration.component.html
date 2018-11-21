@@ -3,7 +3,7 @@
   <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()"class="flex flex-column">
 
     <div class="flex justify-between pr5">
-      <div class="mv3 w-third">
+      <div class="mv3 w-40">
         <label class="mv2 fw6 flex justify-between">
           Name
           <input type="text" formControlName="name" class="ml2 br2">
@@ -15,7 +15,7 @@
       </div>
 
       <div class="mv3 w-40 flex flex-column">
-        <span class="fw6">How would you rate your robot's current level of intelligence?</span>
+        <span class="fw6">How would you categorize your robot's current level of intelligence?</span>
         <select formControlName="intel" class="mv2 w-80">
           <option value="" disabled selected hidden>Select</option>
           <option *ngFor="let intel of intelOptions" [value]="intel.value">
@@ -44,17 +44,6 @@
         </label>
       </div>
     </fieldset>
-
-    <!-- <div class="mv3 flex flex-column">
-      <span class="fw6">How would you rate your robot's current level of intelligence?</span>
-      <select formControlName="intel" class="mv2 w-30">
-        <option value="" disabled selected hidden>Select</option>
-        <option *ngFor="let intel of intelOptions" [value]="intel.value">
-          {{ intel.name }}
-        </option>
-      </select>
-    </div> -->
-
 
     <div>
       <button type="submit" class="pv2 ph3 br3 bn near-white bg-blue pointer">Submit</button>

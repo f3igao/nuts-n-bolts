@@ -20,14 +20,13 @@
           *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button> -->
-        <span class="pointer" (click)="routeToHome()">The Internet is for Everyone</span>
+        <span class="pointer" (click)="routeToHome()">Nuts n Bolts</span>
       </mat-toolbar>
 
       <nav class="w-100 bg-light-gray">
           <button mat-button [matMenuTriggerFor]="menuAbout">About</button>
           <mat-menu #menuAbout="matMenu">
-            <button mat-menu-item>A11y</button>
-            <button mat-menu-item>WCAG</button>
+            <button mat-menu-item>Robots 101</button>
             <button mat-menu-item>FAQs</button>
           </mat-menu>
           <!-- <button mat-button [matMenuTriggerFor]="menuImages">Images</button>

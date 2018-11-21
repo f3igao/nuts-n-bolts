@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "a11y-sandbox": {
+    "nuts-n-bolts": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/a11y-sandbox",
+            "outputPath": "dist/nuts-n-bolts",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -55,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "a11y-sandbox:build"
+            "browserTarget": "nuts-n-bolts:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "a11y-sandbox:build:production"
+              "browserTarget": "nuts-n-bolts:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "a11y-sandbox:build"
+            "browserTarget": "nuts-n-bolts:build"
           }
         },
         "test": {
@@ -101,7 +101,7 @@
         }
       }
     },
-    "a11y-sandbox-e2e": {
+    "nuts-n-bolts-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -109,7 +109,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "a11y-sandbox:serve"
+            "devServerTarget": "nuts-n-bolts:serve"
           }
         },
         "lint": {
@@ -124,5 +124,5 @@
       }
     }
   },
-  "defaultProject": "a11y-sandbox"
+  "defaultProject": "nuts-n-bolts"
 }
