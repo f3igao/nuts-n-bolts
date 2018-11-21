@@ -1,3 +1,14 @@
-<p>
-  army works!
-</p>
+<div class="mh4">
+    <ng-container *ngIf="accessibleExample; else inaccessibleExample">
+      <ol class="list pl0 flex flex-wrap">
+        <li *ngFor="let robot of robotArmy" class="ma3 pa2 ba br4 b--blue bw1 bg-washed-blue shadow-5">
+          <p class="f6 fw6">{{ robot.name}}</p>
+          <img src="{{ robot.image }}" alt="{{ robot.name }}" class="w4">
+          <!-- <p class="w-auto">{{ robot.description }}</p> -->
+        </li>
+      </ol>
+    </ng-container>
+    <!-- <ng-template #inaccessibleExample>
+    </ng-template> -->
+</div>
+
