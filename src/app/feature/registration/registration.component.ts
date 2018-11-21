@@ -73,7 +73,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.registrationFormValues);
+    console.log('Submitting:', this.registrationFormValues);
   }
 
 }

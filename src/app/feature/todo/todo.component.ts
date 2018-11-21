@@ -18,7 +18,7 @@ export class TodoComponent implements OnInit {
 
   ngOnInit() {
     this.apiService.getToDos().subscribe(data => {
-      this.todos = data.slice(0, 10);
+      this.todos = data.slice(0, 15);
     });
   }
 
