@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-import { IOption, IRegistrationFormValues } from './../../models/registration.interface';
+import { IOption, IRobot } from '../../models/robot.interface';
 
 @Component({
   selector: 'app-registration',
@@ -12,7 +12,7 @@ import { IOption, IRegistrationFormValues } from './../../models/registration.in
 export class RegistrationComponent implements OnInit {
   accessibleExample: boolean;
   registrationForm: FormGroup;
-  registrationFormValues: IRegistrationFormValues;
+  registrationValues: IRobot;
   capabilityOptions: IOption[] = [
     { id: 1, name: 'Packaging', value: 'packaging', selected: false},
     { id: 2, name: 'Chess', value: 'chess', selected: false },
@@ -58,8 +58,8 @@ export class RegistrationComponent implements OnInit {
     });
 
     this.registrationForm.valueChanges.subscribe(value => {
-      this.registrationFormValues = {...value, capabilities: this.updateCapabilities(value.capabilities)};
-      console.log(this.registrationFormValues);
+      this.registrationValues = {...value, capabilities: this.updateCapabilities(value.capabilities)};
+      console.log(this.registrationValues);
     });
   }
 
@@ -80,7 +80,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Submitting:', this.registrationFormValues);
+    console.log('Submitting:', this.registrationValues);
   }
 
 }
