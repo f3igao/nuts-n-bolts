@@ -11,7 +11,7 @@
       </mat-nav-list>
     </mat-sidenav> -->
     <mat-sidenav-content>
-      <mat-toolbar color="primary">
+      <mat-toolbar class="near-white bg-navy">
         <!-- <button
           type="button"
           aria-label="Toggle sidenav"
@@ -38,11 +38,12 @@
           <button mat-button [matMenuTriggerFor]="menuForms">Forms</button>
           <mat-menu #menuForms="matMenu">
             <button mat-menu-item (click)="routeToSignup()">Sign Up</button>
-            <button mat-menu-item (click)="routeToRegistration()">Pet Registration</button>
+            <button mat-menu-item (click)="routeToRegistration()">Robot Registration</button>
           </mat-menu>
           <button mat-button [matMenuTriggerFor]="menuLists">Lists</button>
           <mat-menu #menuLists="matMenu">
             <button mat-menu-item (click)="routeToTodo()">To Do List</button>
+            <button mat-menu-item (click)="routeToArmy()">Robot Army</button>
             <!-- <button mat-menu-item>Bad Examples</button> -->
           </mat-menu>
         </nav>

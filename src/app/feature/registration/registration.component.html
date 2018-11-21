@@ -1,44 +1,63 @@
-<div class="mh4">
+<div class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center">
   <h1>Register Your Robot</h1>
-  <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()" class="flex flex-column">
+  <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()"class="flex flex-column">
 
-    <label>
-      Name
-      <input type="text" formControlName="name">
-    </label>
-    <label>
-      Date of Build
-      <input type="date" formControlName="dob">
-    </label>
+    <div class="flex justify-between pr5">
+      <div class="mv3 w-third">
+        <label class="mv2 fw6 flex justify-between">
+          Name
+          <input type="text" formControlName="name" class="ml2 br2">
+        </label>
+        <label class="mv2 fw6 flex justify-between">
+          Date of Build
+          <input type="date" formControlName="dob" class="ml2 br2">
+        </label>
+      </div>
 
-    <fieldset class="ph0 bn">
-      <legend>Division</legend>
-      <label *ngFor="let division of divisionOptions">
-        <input type="radio" formControlName="division" [value]="division.value">
-        {{ division.name }}
-      </label>
+      <div class="mv3 w-40 flex flex-column">
+        <span class="fw6">How would you rate your robot's current level of intelligence?</span>
+        <select formControlName="intel" class="mv2 w-80">
+          <option value="" disabled selected hidden>Select</option>
+          <option *ngFor="let intel of intelOptions" [value]="intel.value">
+            {{ intel.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <fieldset class="ph0 mv3 bn">
+      <legend class="fw6">Division</legend>
+      <div class="flex flex-wrap">
+        <label *ngFor="let division of divisionOptions" class="w-25 pv1">
+          <input type="radio" formControlName="division" [value]="division.value">
+          {{ division.name }}
+        </label>
+      </div>
     </fieldset>
 
-    <fieldset class="flex ph0 bn">
-      <legend>Capabilities</legend>
-      <label formArrayName="capabilities" *ngFor="let capability of registrationForm.controls.capabilities.controls; let i = index">
-        <input type="checkbox" [formControlName]="i">
-        {{ capabilityOptions[i].name }}
-      </label>
+    <fieldset class="ph0 mv3 bn">
+      <legend class="fw6">Capabilities</legend>
+      <div class="flex flex-wrap">
+        <label formArrayName="capabilities" *ngFor="let capability of registrationForm.controls.capabilities.controls; let i = index" class="w-25 pv1">
+          <input type="checkbox" [formControlName]="i">
+          {{ capabilityOptions[i].name }}
+        </label>
+      </div>
     </fieldset>
 
-    <div>
-      <p>How would you rate your robot's current level of intelligence?</p>
-      <select formControlName="intel">
+    <!-- <div class="mv3 flex flex-column">
+      <span class="fw6">How would you rate your robot's current level of intelligence?</span>
+      <select formControlName="intel" class="mv2 w-30">
+        <option value="" disabled selected hidden>Select</option>
         <option *ngFor="let intel of intelOptions" [value]="intel.value">
           {{ intel.name }}
         </option>
       </select>
-    </div>
+    </div> -->
 
 
     <div>
-      <button type="submit">Submit</button>
+      <button type="submit" class="pv2 ph3 br3 bn near-white bg-blue pointer">Submit</button>
     </div>
   </form>
 

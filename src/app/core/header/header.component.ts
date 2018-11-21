@@ -37,4 +37,8 @@ export class HeaderComponent {
     this.router.navigate(['/registration']);
   }
 
+  routeToArmy() {
+    this.router.navigate(['/army']);
+  }
+
 }

@@ -43,9 +43,9 @@ export class RegistrationComponent implements OnInit {
     this.registrationForm = this.fb.group({
       name: '',
       dob: '',
-      intel: new FormControl(),
       division: new FormControl(),
       capabilities: new FormArray(this.buildCapabilities()),
+      intel: new FormControl(),
     });
 
     this.registrationForm.valueChanges.subscribe(value => {
