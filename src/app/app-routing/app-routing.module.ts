@@ -6,15 +6,22 @@ import { PageNotFoundComponent } from '../shared/page-not-found/page-not-found.c
 import { TodoComponent } from '../feature/todo/todo.component';
 import { SignupComponent } from '../feature/signup/signup.component';
 import { RegistrationComponent } from './../feature/registration/registration.component';
+import { ArmyComponent } from '../feature/army/army.component';
 
 
 const routes: Routes = [
+  // root routes
   { path: '', component: HomeComponent },
-  { path: 'home', redirectTo: '' },
-  { path: 'todo', component: TodoComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'registration', component: RegistrationComponent },
-  { path: '404', component: PageNotFoundComponent },
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
+  { path: 'todo', component: TodoComponent, pathMatch: 'full' },
+  { path: 'signup', component: SignupComponent, pathMatch: 'full' },
+  // { path: 'registration', component: RegistrationComponent, pathMatch: 'full' },
+  // { path: 'army', component: ArmyComponent, pathMatch: 'full' },
+  // accessibility test routes
+  { path: 'registration/:status', component: RegistrationComponent },
+  { path: 'army/:status', component: ArmyComponent, pathMatch: 'full' },
+  // page not found
+  { path: '404', component: PageNotFoundComponent, },
   { path: '**', redirectTo: '404' },
 ];
 

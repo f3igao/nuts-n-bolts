@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { IOption, IRegistrationFormValues } from './../../models/registration.interface';
 
@@ -9,6 +10,7 @@ import { IOption, IRegistrationFormValues } from './../../models/registration.in
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
+  a11yStatus: string;
   registrationForm: FormGroup;
   registrationFormValues: IRegistrationFormValues;
   capabilityOptions: IOption[] = [
@@ -37,7 +39,12 @@ export class RegistrationComponent implements OnInit {
     { id: 2, name: 'Artificial General Intelligence (AGI)', value: 'agi' },
     { id: 3, name: 'Artificial Superintelligence (ASI)', value: 'asi' },
   ];
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    ) {
+      this.a11yStatus = route.snapshot.params.status;
+    }
 
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
