@@ -54,6 +54,7 @@ export class RegistrationComponent implements OnInit {
       division: new FormControl(),
       capabilities: new FormArray(this.buildCapabilities()),
       intel: new FormControl(),
+      description: new FormControl(),
     });
 
     this.registrationForm.valueChanges.subscribe(value => {
@@ -70,6 +71,12 @@ export class RegistrationComponent implements OnInit {
     return selections
     .filter((selection: boolean) => selection)
     .map((_selection: boolean, i: number) => this.capabilityOptions[i].value);
+  }
+
+  handleEnterKey(event): void {
+    if (event.target.tagName.toLowerCase() !== 'textarea') {
+      event.preventDefault();
+    }
   }
 
   onSubmit(): void {

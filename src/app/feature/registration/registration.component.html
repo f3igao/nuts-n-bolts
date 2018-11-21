@@ -1,7 +1,7 @@
 <div class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center">
   <ng-container *ngIf="accessibleExample; else inaccessibleExample">
     <h1>Register Your Robot</h1>
-    <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()"class="flex flex-column">
+    <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()" (keydown.enter)="handleEnterKey($event)" class="flex flex-column">
       <div class="flex justify-between pr5">
         <div class="mv3 w-40">
           <label class="mv2 fw6 flex justify-between">
@@ -17,7 +17,6 @@
         <div class="mv3 w-40 flex flex-column">
           <span class="fw6" id="intel">How would you categorize your robot's current level of intelligence?</span>
           <select formControlName="intel" class="mv2 w-80" aria-labelledby="intel">
-            <option value="" disabled selected hidden>Select</option>
             <option *ngFor="let intel of intelOptions" [value]="intel.value">
               {{ intel.name }}
             </option>
@@ -45,6 +44,10 @@
         </div>
       </fieldset>
 
+        <label class="w-90 fw6 mv3 flex flex-column">How would your describe your robot in 3-5 sentences?
+          <textarea formControlName="description" placeholder="Enter description here..." class="mv2 h4 br2 b--gray"></textarea>
+        </label>
+
       <div>
         <button type="submit" class="pv2 ph3 br3 bn near-white bg-blue pointer">Submit</button>
       </div>
@@ -52,7 +55,7 @@
   </ng-container>
   <ng-template #inaccessibleExample>
       <h1>Just Try and Register Your Robot via this Inaccessible Form</h1>
-      <form [formGroup]="registrationForm" id="registrationForm" class="flex flex-column">
+      <form [formGroup]="registrationForm" id="registrationForm" class="flex flex-column" (keydown.enter)="handleEnterKey($event)">
         <div class="flex justify-between pr5">
           <div class="mv3 w-40">
             <label class="mv2 fw6 flex justify-between">
@@ -96,6 +99,9 @@
           </div>
         </div>
 
+        <div class="w-90 fw6 mv3 flex flex-column">How would your describe your robot in 3-5 sentences?
+            <textarea formControlName="description" placeholder="Enter description here..." class="mv2 h4 br2 b--gray"></textarea>
+        </div>
         <div>
           <button (click)="onSubmit()" class="pv2 ph3 br3 bn near-white bg-blue pointer">Submit</button>
         </div>
