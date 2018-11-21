@@ -15,11 +15,11 @@ const routes: Routes = [
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'todo', component: TodoComponent, pathMatch: 'full' },
   { path: 'signup', component: SignupComponent, pathMatch: 'full' },
-  // { path: 'registration', component: RegistrationComponent, pathMatch: 'full' },
-  // { path: 'army', component: ArmyComponent, pathMatch: 'full' },
   // accessibility test routes
   { path: 'registration/:status', component: RegistrationComponent },
+  { path: 'registration', redirectTo: 'registration/good', pathMatch: 'full' },
   { path: 'army/:status', component: ArmyComponent, pathMatch: 'full' },
+  { path: 'army', redirectTo: 'army/good', pathMatch: 'full' },
   // page not found
   { path: '404', component: PageNotFoundComponent, },
   { path: '**', redirectTo: '404' },

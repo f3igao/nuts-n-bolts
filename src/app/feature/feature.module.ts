@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DragDropModule } from '@angular/cdk/drag-drop';
-import { MatListModule } from '@angular/material';
+import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { TodoComponent } from './todo/todo.component';
@@ -13,8 +12,7 @@ import { ArmyComponent } from './army/army.component';
   declarations: [TodoComponent, SignupComponent, RegistrationComponent, ArmyComponent],
   imports: [
     CommonModule,
-    DragDropModule,
-    MatListModule,
+    BrowserModule,
     ReactiveFormsModule,
   ],
   exports: [TodoComponent]

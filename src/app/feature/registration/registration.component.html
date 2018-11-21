@@ -1,53 +1,104 @@
 <div class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center">
-  <h1>Register Your Robot</h1>
-  <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()"class="flex flex-column">
+  <ng-container *ngIf="accessibleExample; else inaccessibleExample">
+    <h1>Register Your Robot</h1>
+    <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()"class="flex flex-column">
+      <div class="flex justify-between pr5">
+        <div class="mv3 w-40">
+          <label class="mv2 fw6 flex justify-between">
+            Name
+            <input type="text" formControlName="name" class="ml2 br2">
+          </label>
+          <label class="mv2 fw6 flex justify-between">
+            Date of Build
+            <input type="date" formControlName="dob" class="ml2 br2">
+          </label>
+        </div>
 
-    <div class="flex justify-between pr5">
-      <div class="mv3 w-40">
-        <label class="mv2 fw6 flex justify-between">
-          Name
-          <input type="text" formControlName="name" class="ml2 br2">
-        </label>
-        <label class="mv2 fw6 flex justify-between">
-          Date of Build
-          <input type="date" formControlName="dob" class="ml2 br2">
-        </label>
+        <div class="mv3 w-40 flex flex-column">
+          <span class="fw6" id="intel">How would you categorize your robot's current level of intelligence?</span>
+          <select formControlName="intel" class="mv2 w-80" aria-labelledby="intel">
+            <option value="" disabled selected hidden>Select</option>
+            <option *ngFor="let intel of intelOptions" [value]="intel.value">
+              {{ intel.name }}
+            </option>
+          </select>
+        </div>
       </div>
 
-      <div class="mv3 w-40 flex flex-column">
-        <span class="fw6">How would you categorize your robot's current level of intelligence?</span>
-        <select formControlName="intel" class="mv2 w-80">
-          <option value="" disabled selected hidden>Select</option>
-          <option *ngFor="let intel of intelOptions" [value]="intel.value">
-            {{ intel.name }}
-          </option>
-        </select>
+      <fieldset class="ph0 mv3 bn">
+        <legend class="fw6">Division</legend>
+        <div class="flex flex-wrap">
+          <label *ngFor="let division of divisionOptions" class="w-25 pv1">
+            <input type="radio" formControlName="division" [value]="division.value">
+            {{ division.name }}
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="ph0 mv3 bn">
+        <legend class="fw6">Capabilities</legend>
+        <div class="flex flex-wrap">
+          <label formArrayName="capabilities" *ngFor="let capability of registrationForm.controls.capabilities.controls; let i = index" class="w-25 pv1">
+            <input type="checkbox" [formControlName]="i">
+            {{ capabilityOptions[i].name }}
+          </label>
+        </div>
+      </fieldset>
+
+      <div>
+        <button type="submit" class="pv2 ph3 br3 bn near-white bg-blue pointer">Submit</button>
       </div>
-    </div>
+    </form>
+  </ng-container>
+  <ng-template #inaccessibleExample>
+      <h1>Just Try and Register Your Robot via this Inaccessible Form</h1>
+      <form [formGroup]="registrationForm" id="registrationForm" class="flex flex-column">
+        <div class="flex justify-between pr5">
+          <div class="mv3 w-40">
+            <label class="mv2 fw6 flex justify-between">
+              Name
+              <input type="text" formControlName="name" class="ml2 br2">
+            </label>
+            <label class="mv2 fw6 flex justify-between">
+              Date of Build
+              <input type="date" formControlName="dob" class="ml2 br2">
+            </label>
+          </div>
 
-    <fieldset class="ph0 mv3 bn">
-      <legend class="fw6">Division</legend>
-      <div class="flex flex-wrap">
-        <label *ngFor="let division of divisionOptions" class="w-25 pv1">
-          <input type="radio" formControlName="division" [value]="division.value">
-          {{ division.name }}
-        </label>
-      </div>
-    </fieldset>
+          <div class="mv3 w-40 flex flex-column">
+            <span class="fw6">How would you categorize your robot's current level of intelligence?</span>
+            <select formControlName="intel" class="mv2 w-80">
+              <option value="" disabled selected hidden>Select</option>
+              <option *ngFor="let intel of intelOptions" [value]="intel.value">
+                {{ intel.name }}
+              </option>
+            </select>
+          </div>
+        </div>
 
-    <fieldset class="ph0 mv3 bn">
-      <legend class="fw6">Capabilities</legend>
-      <div class="flex flex-wrap">
-        <label formArrayName="capabilities" *ngFor="let capability of registrationForm.controls.capabilities.controls; let i = index" class="w-25 pv1">
-          <input type="checkbox" [formControlName]="i">
-          {{ capabilityOptions[i].name }}
-        </label>
-      </div>
-    </fieldset>
+        <div class="ph0 mv3 bn">
+          <p class="fw6">Division</p>
+          <div class="flex flex-wrap">
+            <span *ngFor="let division of divisionOptions" class="w-25 pv1">
+              <input type="radio" formControlName="division" [value]="division.value">
+              {{ division.name }}
+            </span>
+          </div>
+        </div>
 
-    <div>
-      <button type="submit" class="pv2 ph3 br3 bn near-white bg-blue pointer">Submit</button>
-    </div>
-  </form>
+        <div class="ph0 mv3 bn">
+          <p class="fw6">Capabilities</p>
+          <div class="flex flex-wrap">
+            <span formArrayName="capabilities" *ngFor="let capability of registrationForm.controls.capabilities.controls; let i = index" class="w-25 pv1">
+              <input type="checkbox" [formControlName]="i">
+              {{ capabilityOptions[i].name }}
+            </span>
+          </div>
+        </div>
 
+        <div>
+          <button (click)="onSubmit()" class="pv2 ph3 br3 bn near-white bg-blue pointer">Submit</button>
+        </div>
+      </form>
+  </ng-template>
 </div>
