@@ -55,7 +55,10 @@ export class ArmyComponent implements OnInit {
     return capabilities;
   }
 
-  flipCard(i) {
+  flipCard(i: number, event = null, preventDefault = false) {
+    if (preventDefault) {
+      event.preventDefault();
+    }
     this.robotArmy[i].flipped = !this.robotArmy[i].flipped;
   }
 }
