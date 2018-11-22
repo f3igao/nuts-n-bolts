@@ -1,25 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from '../shared/home/home.component';
+import { AboutComponent } from '../shared/about/about.component';
 import { PageNotFoundComponent } from '../shared/page-not-found/page-not-found.component';
-import { TodoComponent } from '../feature/todo/todo.component';
-import { SignupComponent } from '../feature/signup/signup.component';
+import { LoginComponent } from '../feature/login/login.component';
 import { RegistrationComponent } from './../feature/registration/registration.component';
 import { ArmyComponent } from '../feature/army/army.component';
+import { TodoComponent } from '../feature/todo/todo.component';
 
 
 const routes: Routes = [
   // root routes
-  { path: '', component: HomeComponent },
-  { path: 'home', redirectTo: '', pathMatch: 'full' },
-  { path: 'todo', component: TodoComponent, pathMatch: 'full' },
-  { path: 'signup', component: SignupComponent, pathMatch: 'full' },
+  { path: '', component: AboutComponent },
+  { path: 'about', redirectTo: '', pathMatch: 'full' },
   // accessibility test routes
-  { path: 'registration/:status', component: RegistrationComponent },
-  { path: 'registration', redirectTo: 'registration/good', pathMatch: 'full' },
+  { path: 'login/:status', component: LoginComponent, pathMatch: 'full' },
+  { path: 'login', redirectTo: 'login/good', pathMatch: 'full' },
+  { path: 'register/:status', component: RegistrationComponent },
+  { path: 'register', redirectTo: 'register/good', pathMatch: 'full' },
   { path: 'army/:status', component: ArmyComponent, pathMatch: 'full' },
   { path: 'army', redirectTo: 'army/good', pathMatch: 'full' },
+  { path: 'todo/:status', component: TodoComponent, pathMatch: 'full' },
+  { path: 'todo', redirectTo: 'todo/good', pathMatch: 'full' },
   // page not found
   { path: '404', component: PageNotFoundComponent, },
   { path: '**', redirectTo: '404' },

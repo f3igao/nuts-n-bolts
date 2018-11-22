@@ -29,12 +29,12 @@ export class HeaderComponent {
     this.router.navigate(['/todo']);
   }
 
-  routeToSignup() {
-    this.router.navigate(['/signup']);
+  routeToLogin() {
+    this.router.navigate(['/login']);
   }
 
   routeToRegistration() {
-    this.router.navigate(['/registration']);
+    this.router.navigate(['/register']);
   }
 
   routeToArmy() {

@@ -1,51 +1,31 @@
-<mat-sidenav-container class="sidenav-container">
-    <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
-        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'"
-        [opened]="!(isHandset$ | async)">
-      <mat-toolbar>Menu</mat-toolbar>
-      <mat-nav-list>
-        <a mat-list-item href="#">Link 1</a>
-        <a mat-list-item href="#">Link 2</a>
-        <a mat-list-item href="#">Link 3</a>
-      </mat-nav-list>
-    </mat-sidenav> -->
-    <mat-sidenav-content>
-      <mat-toolbar class="near-white bg-navy">
-        <!-- <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()"
-          *ngIf="isHandset$ | async">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button> -->
-        <span class="pointer" (click)="routeToHome()">Nuts n Bolts</span>
-      </mat-toolbar>
+<div>
+  <div class="bg-navy near-white">
+    <h1 class="ph4 dib pointer" (click)="routeToHome()">Nuts n Bolts</h1>
+  </div>
+  <nav class="bg-light-gray ph4 flex" aria-label="Main Navigation">
+    <button (click)="routeToHome()">About</button>
+    <button (click)="routeToRegistration()">Registration</button>
+    <button (click)="routeToArmy()">Army</button>
+    <button (click)="routeToTodo()">Pending Tasks</button>
+    </nav>
+</div>
 
-      <nav class="w-100 bg-light-gray">
-          <button mat-button [matMenuTriggerFor]="menuAbout">About</button>
-          <mat-menu #menuAbout="matMenu">
-            <button mat-menu-item>Robots 101</button>
-            <button mat-menu-item>FAQs</button>
-          </mat-menu>
-          <!-- <button mat-button [matMenuTriggerFor]="menuImages">Images</button>
-          <mat-menu #menuImages="matMenu">
-            <button mat-menu-item>Good Examples</button>
-            <button mat-menu-item>Bad Examples</button>
-          </mat-menu> -->
-          <button mat-button [matMenuTriggerFor]="menuForms">Forms</button>
-          <mat-menu #menuForms="matMenu">
-            <button mat-menu-item (click)="routeToSignup()">Sign Up</button>
-            <button mat-menu-item (click)="routeToRegistration()">Robot Registration</button>
-          </mat-menu>
-          <button mat-button [matMenuTriggerFor]="menuLists">Lists</button>
-          <mat-menu #menuLists="matMenu">
-            <button mat-menu-item (click)="routeToTodo()">To Do List</button>
-            <button mat-menu-item (click)="routeToArmy()">Robot Army</button>
-            <!-- <button mat-menu-item>Bad Examples</button> -->
-          </mat-menu>
-        </nav>
+  <!-- <button mat-menu-item (click)="routeToLogin()">Login</button> -->
 
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+
+        <!-- <button mat-button (click)="routeToHome()">About</button>
+      <button mat-button [matMenuTriggerFor]="menuRegister">Robot Registration</button>
+      <mat-menu #menuRegister="matMenu">
+        <button mat-menu-item (click)="routeToRegistration(true)">Accessible</button>
+        <button mat-menu-item (click)="routeToRegistration(false)">Inaccessible</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="menuArmy">See Army</button>
+      <mat-menu #menuArmy="matMenu">
+        <button mat-menu-item (click)="routeToArmy(true)">Accessible</button>
+          <button mat-menu-item (click)="routeToArmy(false)">Inaccessible</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="menuTodo">Pending Tasks</button>
+      <mat-menu #menuTodo="matMenu">
+        <button mat-menu-item (click)="routeToTodo(true)">Accessible</button>
+          <button mat-menu-item (click)="routeToTodo(false)">Inaccessible</button>
+      </mat-menu> -->

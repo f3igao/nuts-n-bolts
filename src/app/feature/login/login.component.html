@@ -1,0 +1,48 @@
+<div class="mh4">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" id="loginForm" (ngSubmit)="onSubmit()">
+    <!-- input fields -->
+        <label>
+          Username:
+          <input type="text" formControlName="username">
+        </label>
+        <label>
+          Password:
+          <input type="password" formControlName="password">
+        </label>
+    <!-- custom checkboxes -->
+        <label class="container">One
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="container">Two
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="container">Three
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="container">Four
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- <h2>Login - What not to do</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          Username:
+          <input type="text" formControlName="username">
+
+          Password:
+          <input type="password" formControlName="password">
+
+        <button>Submit</button>
+    </form> -->
+
+
+  </div>
