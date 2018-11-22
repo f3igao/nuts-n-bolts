@@ -12,6 +12,7 @@ import * as faker from 'faker';
 export class ArmyComponent implements OnInit {
   accessibleExample: boolean;
   robotArmy: IRobot[] = [];
+  flippedCardIndex: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,7 +22,6 @@ export class ArmyComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildRobotArmy();
-    console.log(this.robotArmy);
   }
 
   buildRobotArmy(): void {
@@ -53,5 +53,17 @@ export class ArmyComponent implements OnInit {
       capabilities.push(faker.random.word());
     }
     return capabilities;
+  }
+
+  flipCard(i) {
+    this.flippedCardIndex = i;
+    console.log('set flipped card ind:', this.flippedCardIndex);
+  }
+
+  showBack(i): boolean {
+    console.log(this.flippedCardIndex === i);
+    const showBack = this.flippedCardIndex === i ? true : false;
+    // this.flippedCardIndex = -1;
+    return showBack;
   }
 }
