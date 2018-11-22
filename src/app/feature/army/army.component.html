@@ -2,10 +2,9 @@
     <ng-container *ngIf="accessibleExample; else inaccessibleExample">
       <h1>Your Robot Army</h1>
       <ol class="list pl0 flex flex-wrap justify-center">
-          <li *ngFor="let robot of robotArmy; let i=index" class="flip-card w-25 ma3 pointer" [ngClass]="{'flipped': showBack(i)}" (click)="flipCard(i)">
-              <div class="flip-card-inner relative w-100 h-100 ba br4 b--blue bw1 bg-washed-blue" (click)="flipCard(i)">
+          <li *ngFor="let robot of robotArmy; let i=index" class="flip-card w-25 ma3 pointer" [ngClass]="{'flipped': robot.flipped}" (click)="flipCard(i)">
+              <div class="flip-card-inner relative w-100 h-100 ba br4 b--blue bw1 bg-washed-blue">
                 <div class="flip-card-front absolute w-100 h-100 pa2 overflow-y-scroll">
-                  <!-- flipcard(true/false) -->
                   <p class="f6 fw6 mb0 tc">{{ robot.name}}</p>
                   <img src="{{ robot.image }}" alt="{{ robot.name }}" class="w4 mr3 mb2 fl">
                   <p class="f6 ph2">{{ robot.description }}</p>

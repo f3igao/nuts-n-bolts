@@ -12,7 +12,6 @@ import * as faker from 'faker';
 export class ArmyComponent implements OnInit {
   accessibleExample: boolean;
   robotArmy: IRobot[] = [];
-  flippedCardIndex: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -43,6 +42,7 @@ export class ArmyComponent implements OnInit {
       intel: faker.random.arrayElement(['ani', 'agi', 'asi']),
       image: imageUrl,
       description: faker.lorem.paragraph(),
+      flipped: false,
     };
   }
 
@@ -56,14 +56,6 @@ export class ArmyComponent implements OnInit {
   }
 
   flipCard(i) {
-    this.flippedCardIndex = i;
-    console.log('set flipped card ind:', this.flippedCardIndex);
-  }
-
-  showBack(i): boolean {
-    console.log(this.flippedCardIndex === i);
-    const showBack = this.flippedCardIndex === i ? true : false;
-    // this.flippedCardIndex = -1;
-    return showBack;
+    this.robotArmy[i].flipped = !this.robotArmy[i].flipped;
   }
 }

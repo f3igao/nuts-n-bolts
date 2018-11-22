@@ -13,4 +13,5 @@ export class IRobot {
   capabilities: string[];
   description: string;
   image?: string;
+  flipped?: boolean;
 }
