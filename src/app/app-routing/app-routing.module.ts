@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'login', redirectTo: 'login/good', pathMatch: 'full' },
   { path: 'register/:status', component: RegistrationComponent },
   { path: 'register', redirectTo: 'register/good', pathMatch: 'full' },
-  { path: 'army/:status', component: ArmyComponent, pathMatch: 'full' },
+  { path: 'army/:status', component: ArmyComponent, pathMatch: 'full', runGuardsAndResolvers: 'always' },
   { path: 'army', redirectTo: 'army/good', pathMatch: 'full' },
   { path: 'todo/:status', component: TodoComponent, pathMatch: 'full' },
   { path: 'todo', redirectTo: 'todo/good', pathMatch: 'full' },
@@ -28,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }

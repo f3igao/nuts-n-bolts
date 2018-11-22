@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import { IOption, IRobot } from '../../models/robot.interface';
 
@@ -13,6 +13,7 @@ export class RegistrationComponent implements OnInit {
   accessibleExample: boolean;
   registrationForm: FormGroup;
   registrationValues: IRobot;
+  navigationSubscription: any;
   capabilityOptions: IOption[] = [
     { id: 1, name: 'Packaging', value: 'packaging', selected: false},
     { id: 2, name: 'Chess', value: 'chess', selected: false },
@@ -43,8 +44,14 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router
     ) {
-      this.accessibleExample = route.snapshot.params.status === 'good' ? true : false;
+      this.navigationSubscription = this.router.events.subscribe((event: any) => {
+        // subscribe to route change; re-initalise the component on a NavigationEnd event
+        if (event instanceof NavigationEnd) {
+          this.accessibleExample = route.snapshot.params.status === 'good' ? true : false;
+        }
+      });
     }
 
   ngOnInit(): void {
