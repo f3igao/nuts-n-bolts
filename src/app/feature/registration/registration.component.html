@@ -1,8 +1,8 @@
-<a class="fl ma4 pointer" [routerLink]="['/register', 'good']">See Inaccessible Example</a>
-<div class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center">
+<button class="fixed ph3 pv2 br2 bg-navy near-white bottom-0 right-0 dim pointer" (click)="toggleAccessibility()">Toggle A11y</button>
+<div class="mh4">
   <ng-container *ngIf="accessibleExample; else inaccessibleExample">
-    <h2>Register Your Robot</h2>
-    <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()" (keydown.enter)="handleEnterKey($event)" class="flex flex-column">
+    <h1 class="f3">Register Your Robot</h1>
+    <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()" (keydown.enter)="handleEnterKey($event)" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center flex flex-column">
       <div class="flex justify-between pr5">
         <div class="mv3 w-40">
           <label class="mv2 fw6 flex justify-between">
@@ -46,7 +46,7 @@
       </fieldset>
 
         <label class="w-90 fw6 mv3 flex flex-column">How would your describe your robot in 3-5 sentences?
-          <textarea formControlName="description" placeholder="Enter description here..." class="mv2 h4 br2 b--gray"></textarea>
+          <textarea formControlName="description" placeholder="Enter description here..." class="mv2 pa2 h4 br2 b--gray"></textarea>
         </label>
 
       <div>
@@ -55,8 +55,8 @@
     </form>
   </ng-container>
   <ng-template #inaccessibleExample>
-      <h2>Just Try and Register Your Robot via this Inaccessible Form</h2>
-      <form [formGroup]="registrationForm" id="registrationForm" class="flex flex-column" (keydown.enter)="handleEnterKey($event)">
+      <h1 class="f3">Just Try and Register Your Robot via this Inaccessible Form</h1>
+      <form [formGroup]="registrationForm" id="registrationForm" (keydown.enter)="handleEnterKey($event)" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center flex flex-column">
         <div class="flex justify-between pr5">
           <div class="mv3 w-40">
             <label class="mv2 fw6 flex justify-between">
@@ -101,7 +101,7 @@
         </div>
 
         <div class="w-90 fw6 mv3 flex flex-column">How would your describe your robot in 3-5 sentences?
-            <textarea formControlName="description" placeholder="Enter description here..." class="mv2 h4 br2 b--gray"></textarea>
+            <textarea formControlName="description" placeholder="Enter description here..." class="mv2 pa2 h4 br2 b--gray"></textarea>
         </div>
         <div>
           <button (click)="onSubmit()" class="pv2 ph3 br3 bn near-white bg-blue pointer">Submit</button>

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
-import { IOption, IRobot } from '../../models/robot.interface';
+import { IOption, IRobot } from '../../models/feature.interface';
+
+import { ROBOT_CAPABILITIES, ROBOT_DIVISIONS, ROBOT_INTEL_LEVELS } from 'src/assets/mock-data/robot.mock';
 
 @Component({
   selector: 'app-registration',
@@ -10,37 +12,14 @@ import { IOption, IRobot } from '../../models/robot.interface';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-  accessibleExample: boolean;
+accessibleExample: boolean;
   registrationForm: FormGroup;
   registrationValues: IRobot;
   navigationSubscription: any;
-  capabilityOptions: IOption[] = [
-    { id: 1, name: 'Packaging', value: 'packaging', selected: false},
-    { id: 2, name: 'Chess', value: 'chess', selected: false },
-    { id: 3, name: 'Drawing', value: 'drawing', selected: false },
-    { id: 4, name: 'Music Composition', value: 'music', selected: false },
-    { id: 5, name: 'Analyze Emotions', value: 'emotions', selected: false },
-    { id: 6, name: 'Telemanipulation', value: 'telemanipulation', selected: false },
-    { id: 7, name: 'Welding', value: 'welding', selected: false },
-    { id: 8, name: 'Painting', value: 'painting', selected: false },
-    { id: 9, name: 'Vacuuming', value: 'vacuuming', selected: false },
-    { id: 10, name: 'Poetry', value: 'poetry', selected: false },
-    { id: 11, name: 'Make Coffee', value: 'coffee', selected: false },
-  ];
-  divisionOptions: IOption[] = [
-    { id: 1, name: 'Industrial', value: 'industrial' },
-    { id: 2, name: 'Domestic / Household', value: 'domestic' },
-    { id: 3, name: 'Medical', value: 'medical' },
-    { id: 4, name: 'Service', value: 'service' },
-    { id: 5, name: 'Military', value: 'military' },
-    { id: 6, name: 'Entertainment', value: 'entertainment' },
-    { id: 7, name: 'Space', value: 'space' },
-  ];
-  intelOptions: IOption[] = [
-    { id: 1, name: 'Artificial Narrow Intelligence (ANI)', value: 'ani' },
-    { id: 2, name: 'Artificial General Intelligence (AGI)', value: 'agi' },
-    { id: 3, name: 'Artificial Superintelligence (ASI)', value: 'asi' },
-  ];
+  capabilityOptions: IOption[] =  ROBOT_CAPABILITIES;
+  divisionOptions: IOption[] = ROBOT_DIVISIONS;
+  intelOptions: IOption[] = ROBOT_INTEL_LEVELS;
+
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -55,6 +34,14 @@ export class RegistrationComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.buildRegistrationForm();
+    this.registrationForm.valueChanges.subscribe(value => {
+      this.registrationValues = {...value, capabilities: this.updateCapabilities(value.capabilities)};
+      console.log(this.registrationValues);
+    });
+  }
+
+  buildRegistrationForm(): void {
     this.registrationForm = this.fb.group({
       name: '',
       dob: '',
@@ -62,11 +49,6 @@ export class RegistrationComponent implements OnInit {
       capabilities: new FormArray(this.buildCapabilities()),
       intel: new FormControl(),
       description: new FormControl(),
-    });
-
-    this.registrationForm.valueChanges.subscribe(value => {
-      this.registrationValues = {...value, capabilities: this.updateCapabilities(value.capabilities)};
-      console.log(this.registrationValues);
     });
   }
 
@@ -84,6 +66,12 @@ export class RegistrationComponent implements OnInit {
     if (event.target.tagName.toLowerCase() !== 'textarea') {
       event.preventDefault();
     }
+  }
+
+  toggleAccessibility(): void {
+    this.accessibleExample = !this.accessibleExample;
+    const status = this.accessibleExample === true ? '/good' : '/bad';
+    this.router.navigate([`/register${status}`]);
   }
 
   onSubmit(): void {
