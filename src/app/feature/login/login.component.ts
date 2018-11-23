@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
       });
     }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.buildLoginForm();
 
     this.loginForm.valueChanges.subscribe(value => {

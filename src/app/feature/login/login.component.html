@@ -2,7 +2,7 @@
 <div class="mh4">
   <ng-container *ngIf="accessibleExample; else inaccessibleExample">
       <h1 class="f3">Login</h1>
-      <form [formGroup]="loginForm" id="loginForm" (ngSubmit)="onSubmit()" (keydown.enter)="handleEnterKey($event)" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-40 center flex flex-column">
+      <form [formGroup]="loginForm" id="login-form" (ngSubmit)="onSubmit()" (keydown.enter)="handleEnterKey($event)" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-40 center flex flex-column">
         <label>
           Username:
           <input type="text" formControlName="username">
@@ -18,7 +18,7 @@
   </ng-container>
   <ng-template #inaccessibleExample>
       <h1 class="f3">Login - What not to do</h1>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-40 center flex flex-column">
+      <form [formGroup]="login-form" (ngSubmit)="onSubmit()" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-40 center flex flex-column">
         <div class="flex">
           Username:
           <input formControlName="username">

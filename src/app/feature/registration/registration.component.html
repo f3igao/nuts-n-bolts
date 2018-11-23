@@ -2,7 +2,7 @@
 <div class="mh4">
   <ng-container *ngIf="accessibleExample; else inaccessibleExample">
     <h1 class="f3">Register Your Robot</h1>
-    <form [formGroup]="registrationForm" id="registrationForm" (ngSubmit)="onSubmit()" (keydown.enter)="handleEnterKey($event)" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center flex flex-column">
+    <form [formGroup]="registrationForm" id="registration-form" (ngSubmit)="onSubmit()" (keydown.enter)="handleEnterKey($event)" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center flex flex-column">
       <div class="flex justify-between pr5">
         <div class="mv3 w-40">
           <label class="mv2 fw6 flex justify-between">
@@ -56,7 +56,7 @@
   </ng-container>
   <ng-template #inaccessibleExample>
       <h1 class="f3">Just Try and Register Your Robot via this Inaccessible Form</h1>
-      <form [formGroup]="registrationForm" id="registrationForm" (keydown.enter)="handleEnterKey($event)" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center flex flex-column">
+      <form [formGroup]="registrationForm" id="registration-form" (keydown.enter)="handleEnterKey($event)" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center flex flex-column">
         <div class="flex justify-between pr5">
           <div class="mv3 w-40">
             <label class="mv2 fw6 flex justify-between">
