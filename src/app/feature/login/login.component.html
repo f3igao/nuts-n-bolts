@@ -1,7 +1,8 @@
+<button class="fixed ph3 pv2 br2 bg-navy near-white bottom-0 right-0 dim pointer" (click)="toggleAccessibility()">Toggle A11y</button>
 <div class="mh4">
-    <h2>Login</h2>
-    <form [formGroup]="loginForm" id="loginForm" (ngSubmit)="onSubmit()">
-    <!-- input fields -->
+  <ng-container *ngIf="accessibleExample; else inaccessibleExample">
+      <h1 class="f3">Login</h1>
+      <form [formGroup]="loginForm" id="loginForm" (ngSubmit)="onSubmit()" (keydown.enter)="handleEnterKey($event)" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-40 center flex flex-column">
         <label>
           Username:
           <input type="text" formControlName="username">
@@ -10,39 +11,25 @@
           Password:
           <input type="password" formControlName="password">
         </label>
-    <!-- custom checkboxes -->
-        <label class="container">One
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-          </label>
-
-          <label class="container">Two
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-
-          <label class="container">Three
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-
-          <label class="container">Four
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        <button type="submit">Submit</button>
-    </form>
-
-    <!-- <h2>Login - What not to do</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+          <button (click)="onSubmit()" class="pv2 ph3 br3 bn near-white bg-blue pointer">Submit</button>
+        </div>
+      </form>
+  </ng-container>
+  <ng-template #inaccessibleExample>
+      <h1 class="f3">Login - What not to do</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-40 center flex flex-column">
+        <div class="flex">
           Username:
-          <input type="text" formControlName="username">
-
+          <input formControlName="username">
+        </div>
+        <div class="flex">
           Password:
           <input type="password" formControlName="password">
-
-        <button>Submit</button>
-    </form> -->
-
-
-  </div>
+        </div>
+        <div>
+          <button (click)="onSubmit()" class="pv2 ph3 br3 bn near-white bg-blue pointer">Submit</button>
+        </div>
+      </form>
+  </ng-template>
+</div>
