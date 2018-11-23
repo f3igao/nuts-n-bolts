@@ -1,31 +1,6 @@
-<div>
-  <div class="bg-navy near-white">
-    <h1 class="ph4 dib pointer" (click)="routeToHome()">Nuts n Bolts</h1>
-  </div>
-  <nav class="bg-light-gray ph4 flex" aria-label="Main Navigation">
-    <button (click)="routeToHome()">About</button>
-    <button (click)="routeToRegistration()">Registration</button>
-    <button (click)="routeToArmy()">Army</button>
-    <button (click)="routeToTodo()">Pending Tasks</button>
-    </nav>
+<div class="bg-navy near-white">
+  <a routerLink="/" class="ph4 pv3 f2 b near-white no-underline dib">Nuts n Bolts</a>
 </div>
-
-  <!-- <button mat-menu-item (click)="routeToLogin()">Login</button> -->
-
-
-        <!-- <button mat-button (click)="routeToHome()">About</button>
-      <button mat-button [matMenuTriggerFor]="menuRegister">Robot Registration</button>
-      <mat-menu #menuRegister="matMenu">
-        <button mat-menu-item (click)="routeToRegistration(true)">Accessible</button>
-        <button mat-menu-item (click)="routeToRegistration(false)">Inaccessible</button>
-      </mat-menu>
-      <button mat-button [matMenuTriggerFor]="menuArmy">See Army</button>
-      <mat-menu #menuArmy="matMenu">
-        <button mat-menu-item (click)="routeToArmy(true)">Accessible</button>
-          <button mat-menu-item (click)="routeToArmy(false)">Inaccessible</button>
-      </mat-menu>
-      <button mat-button [matMenuTriggerFor]="menuTodo">Pending Tasks</button>
-      <mat-menu #menuTodo="matMenu">
-        <button mat-menu-item (click)="routeToTodo(true)">Accessible</button>
-          <button mat-menu-item (click)="routeToTodo(false)">Inaccessible</button>
-      </mat-menu> -->
+<nav class="bg-light-gray ph2 flex" aria-label="Main Navigation">
+<a *ngFor="let link of navLinks" [routerLink]="link.url" class="mh2 pa3 link underline navy hover-blue no-underline" [ngClass]="{'absolute right-1': link.right}">{{ link.name }}</a>
+</nav>
