@@ -1,26 +1,19 @@
+<button class="fixed ph3 pv2 br2 bg-navy near-white bottom-0 right-0 dim pointer" (click)="toggleAccessibility()">Toggle A11y</button>
 <div class="mh4">
-  <h2>To Do List</h2>
-  <!-- <p>
-    Number of tasks done: {{ todoList.selectedOptions.selected.length }}
-  </p>
-
-  <div class="w-80 ba br4 bw1 b--moon-gray shadow-4">
-    <mat-selection-list #todoList>
-      <mat-list-option *ngFor="let item of todos">
-        {{ item.title }}
-      </mat-list-option>
-    </mat-selection-list>
-  </div> -->
-
-  <ul class="w-75 list pa3 ba br4 bw1 b--moon-gray shadow-4">
-    <li class="pv2" *ngFor="let item of todos">
-        {{ item.title }}
-    </li>
-  </ul>
+    <ng-container *ngIf="accessibleExample; else inaccessibleExample">
+      <h1 class="f3">Pending Tasks</h1>
+      <ul class="mh6 mv4 ph5 pv4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center flex flex-wrap justify-between">
+        <li class="pv2 w-40" *ngFor="let item of todos; let i = index" [ngClass]="{'strike': item.completed}">
+            <span class="pointer" tabindex="0" (click)="markDone(i)" (keydown.enter)="markDone(i)" (keydown.space)="markDone(i, $event, true)">{{ item.title }}</span>
+        </li>
+      </ul>
+    </ng-container>
+    <ng-template #inaccessibleExample>
+      <h1 class="f3">Pending Tasks that May Never Get Done</h1>
+      <div class="mh6 mv4 ph5 pv4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center flex flex-wrap justify-between">
+        <li class="pv2 w-40" *ngFor="let item of todos; let i = index" [ngClass]="{'strike': item.completed}">
+            <span class="pointer" (click)="markDone(i)">{{ item.title }}</span>
+        </li>
+      </div>
+    </ng-template>
 </div>
-
-
-
-
-
-<!-- [ngClass]="item.complete ? 'green' : 'red'"  -->
