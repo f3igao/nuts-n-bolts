@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
-import { IRobot } from 'src/app/models/robot.interface';
+import { IRobot } from 'src/app/models/feature.interface';
 import * as faker from 'faker';
 
 @Component({
@@ -12,12 +12,19 @@ import * as faker from 'faker';
 export class ArmyComponent implements OnInit {
   accessibleExample: boolean;
   robotArmy: IRobot[] = [];
+  navigationSubscription;
 
   constructor(
     private route: ActivatedRoute,
-  ) {
-    this.accessibleExample = route.snapshot.params.status === 'good' ? true : false;
-  }
+    private router: Router
+    ) {
+      this.navigationSubscription = this.router.events.subscribe((event: any) => {
+        // subscribe to route change; re-initalise the component on a NavigationEnd event
+        if (event instanceof NavigationEnd) {
+          this.accessibleExample = route.snapshot.params.status === 'good' ? true : false;
+        }
+      });
+    }
 
   ngOnInit(): void {
     this.buildRobotArmy();
@@ -55,10 +62,16 @@ export class ArmyComponent implements OnInit {
     return capabilities;
   }
 
-  flipCard(i: number, event = null, preventDefault = false) {
+  flipCard(i: number, event = null, preventDefault = false): void {
     if (preventDefault) {
       event.preventDefault();
     }
     this.robotArmy[i].flipped = !this.robotArmy[i].flipped;
+  }
+
+  toggleAccessibility(): void {
+    this.accessibleExample = !this.accessibleExample;
+    const status = this.accessibleExample === true ? '/good' : '/bad';
+    this.router.navigate([`/army${status}`]);
   }
 }

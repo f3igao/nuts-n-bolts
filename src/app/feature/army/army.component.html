@@ -1,11 +1,12 @@
+<button class="fixed ph3 pv2 br2 bg-navy near-white bottom-0 right-0 dim pointer" (click)="toggleAccessibility()">Toggle A11y</button>
 <div class="mh4">
     <ng-container *ngIf="accessibleExample; else inaccessibleExample">
-      <h2>Your Robot Army</h2>
+      <h1 class="f3">Your Robot Army</h1>
       <ol class="list pl0 flex flex-wrap justify-center">
           <li *ngFor="let robot of robotArmy; let i = index" class="flip-card w-25 ma3 pointer" tabindex="0" [ngClass]="{'flipped': robot.flipped}" (click)="flipCard(i)" (keydown.enter)="flipCard(i)" (keydown.space)="flipCard(i, $event, true)">
               <div class="flip-card-inner relative w-100 h-100 ba br4 b--blue bw1 bg-washed-blue">
                 <div class="flip-card-front absolute w-100 h-100 pa2 overflow-y-scroll">
-                  <p class="f6 fw6 mb0 tc">{{ robot.name}}</p>
+                  <span class="f6 fw6 mb0 tc">{{ robot.name}}</span>
                   <img src="{{ robot.image }}" alt="{{ robot.name }}" class="w4 mr3 mb2 fl">
                   <p class="f6 ph2">{{ robot.description }}</p>
                 </div>
@@ -27,7 +28,7 @@
       </ol>
     </ng-container>
     <ng-template #inaccessibleExample>
-        <h2>Your (Inaccessible) Robot Army</h2>
+        <h1 class="f3">Your (Inaccessible) Robot Army</h1>
         <div class="flex flex-wrap justify-center">
           <div *ngFor="let robot of robotArmy; let i = index" class="flip-card w-25 ma3 pointer" [ngClass]="{'flipped': robot.flipped}" (click)="flipCard(i)">
             <div class="flip-card-inner relative w-100 h-100 ba br4 b--blue bw1 bg-washed-blue">
