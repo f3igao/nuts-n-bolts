@@ -3,7 +3,7 @@
     "standard": "WCAG2AA",
     "timeout": 20000,
     "includeWarnings": true,
-    "threshold": 200
+    "threshold": 500
   },
   "urls": [
     {
