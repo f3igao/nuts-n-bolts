@@ -2,7 +2,8 @@
   "defaults": {
     "standard": "WCAG2AA",
     "timeout": 20000,
-    "threshold": 5
+    "includeWarnings": true,
+    "threshold": 2
   },
   "urls": [
     {
