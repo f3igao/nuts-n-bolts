@@ -1,5 +1,5 @@
-<button class="fixed ph3 pv2 br2 bg-navy near-white bottom-0 right-0 dim pointer" (click)="toggleAccessibility()">Toggle A11y</button>
-<div class="mh4">
+<div class="mh4" role="main">
+  <button class="fixed ph3 pv2 br2 bg-navy near-white bottom-0 right-0 dim pointer" (click)="toggleAccessibility()">Toggle A11y</button>
   <ng-container *ngIf="accessibleExample; else inaccessibleExample">
     <h1 class="f3">Register Your Robot</h1>
     <form [formGroup]="registrationForm" id="registration-form" (ngSubmit)="onSubmit()" (keydown.enter)="handleEnterKey($event)" class="mh6 mv4 pa4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center flex flex-column">

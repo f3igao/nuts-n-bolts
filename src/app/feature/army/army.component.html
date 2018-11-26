@@ -1,55 +1,55 @@
-<button class="fixed ph3 pv2 br2 bg-navy near-white bottom-0 right-0 dim pointer" (click)="toggleAccessibility()">Toggle A11y</button>
-<div class="mh4">
-    <ng-container *ngIf="accessibleExample; else inaccessibleExample">
-      <h1 class="f3">Your Robot Army</h1>
-      <ol class="list pl0 flex flex-wrap justify-center">
-          <li *ngFor="let robot of robotArmy; let i = index" class="flip-card w-25 ma3 pointer" tabindex="0" [ngClass]="{'flipped': robot.flipped}" (click)="flipCard(i)" (keydown.enter)="flipCard(i)" (keydown.space)="flipCard(i, $event, true)">
-              <div class="flip-card-inner relative w-100 h-100 ba br4 b--blue bw1 bg-washed-blue">
-                <div class="flip-card-front absolute w-100 h-100 pa2 overflow-y-scroll">
-                  <span class="f6 fw6 mb0 tc">{{ robot.name}}</span>
-                  <img src="{{ robot.image }}" alt="{{ robot.name }}" class="w4 mr3 mb2 fl">
-                  <p class="f6 ph2">{{ robot.description }}</p>
-                </div>
-                <div class="flip-card-back absolute w-100 h-100 pv2 ph4 overflow-y-scroll f6">
-                  <ul class="list pl0">
-                    <li class="mv2">DOB: {{ robot.dob }}</li>
-                    <li class="mv2">Division: {{ robot.division }}</li>
-                    <li class="mv2">Inteligence Level: {{ robot.intel.toUpperCase() }}</li>
-                    <li class="mv2">Capabilities</li>
-                    <ul class="mv2">
-                      <li *ngFor="let cap of robot.capabilities">
-                        {{ cap }}
-                      </li>
-                    </ul>
-                  </ul>
-                </div>
-              </div>
-          </li>
-      </ol>
-    </ng-container>
-    <ng-template #inaccessibleExample>
-        <h1 class="f3">Your (Inaccessible) Robot Army</h1>
-        <div class="flex flex-wrap justify-center">
-          <div *ngFor="let robot of robotArmy; let i = index" class="flip-card w-25 ma3 pointer" [ngClass]="{'flipped': robot.flipped}" (click)="flipCard(i)">
+<div class="mh4" role="main">
+  <button class="fixed ph3 pv2 br2 bg-navy near-white bottom-0 right-0 dim pointer" (click)="toggleAccessibility()">Toggle A11y</button>
+  <ng-container *ngIf="accessibleExample; else inaccessibleExample">
+    <h1 class="f3">Your Robot Army</h1>
+    <ol class="list pl0 flex flex-wrap justify-center">
+        <li *ngFor="let robot of robotArmy; let i = index" class="flip-card w-25 ma3 pointer" tabindex="0" [ngClass]="{'flipped': robot.flipped}" (click)="flipCard(i)" (keydown.enter)="flipCard(i)" (keydown.space)="flipCard(i, $event, true)">
             <div class="flip-card-inner relative w-100 h-100 ba br4 b--blue bw1 bg-washed-blue">
               <div class="flip-card-front absolute w-100 h-100 pa2 overflow-y-scroll">
                 <span class="f6 fw6 mb0 tc">{{ robot.name}}</span>
-                <img src="{{ robot.image }}" class="w4 mr3 mb2 fl">
+                <img src="{{ robot.image }}" alt="{{ robot.name }}" class="w4 mr3 mb2 fl">
                 <p class="f6 ph2">{{ robot.description }}</p>
               </div>
               <div class="flip-card-back absolute w-100 h-100 pv2 ph4 overflow-y-scroll f6">
-                <p class="mv2">DOB: {{ robot.dob }}</p>
-                <p class="mv2">Division: {{ robot.division }}</p>
-                <p class="mv2">Inteligence Level: {{ robot.intel.toUpperCase() }}</p>
-                <p class="mv2">Capabilities</p>
-                <div class="mv2">
-                  <li *ngFor="let cap of robot.capabilities">
-                    {{ cap }}
-                  </li>
-                </div>
+                <ul class="list pl0">
+                  <li class="mv2">DOB: {{ robot.dob }}</li>
+                  <li class="mv2">Division: {{ robot.division }}</li>
+                  <li class="mv2">Inteligence Level: {{ robot.intel.toUpperCase() }}</li>
+                  <li class="mv2">Capabilities</li>
+                  <ul class="mv2">
+                    <li *ngFor="let cap of robot.capabilities">
+                      {{ cap }}
+                    </li>
+                  </ul>
+                </ul>
+              </div>
+            </div>
+        </li>
+    </ol>
+  </ng-container>
+  <ng-template #inaccessibleExample>
+      <h1 class="f3">Your (Inaccessible) Robot Army</h1>
+      <div class="flex flex-wrap justify-center">
+        <div *ngFor="let robot of robotArmy; let i = index" class="flip-card w-25 ma3 pointer" [ngClass]="{'flipped': robot.flipped}" (click)="flipCard(i)">
+          <div class="flip-card-inner relative w-100 h-100 ba br4 b--blue bw1 bg-washed-blue">
+            <div class="flip-card-front absolute w-100 h-100 pa2 overflow-y-scroll">
+              <span class="f6 fw6 mb0 tc">{{ robot.name}}</span>
+              <img src="{{ robot.image }}" class="w4 mr3 mb2 fl">
+              <p class="f6 ph2">{{ robot.description }}</p>
+            </div>
+            <div class="flip-card-back absolute w-100 h-100 pv2 ph4 overflow-y-scroll f6">
+              <p class="mv2">DOB: {{ robot.dob }}</p>
+              <p class="mv2">Division: {{ robot.division }}</p>
+              <p class="mv2">Inteligence Level: {{ robot.intel.toUpperCase() }}</p>
+              <p class="mv2">Capabilities</p>
+              <div class="mv2">
+                <li *ngFor="let cap of robot.capabilities">
+                  {{ cap }}
+                </li>
               </div>
             </div>
           </div>
         </div>
-    </ng-template>
+      </div>
+  </ng-template>
 </div>

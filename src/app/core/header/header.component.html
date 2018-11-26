@@ -1,5 +1,5 @@
-<div class="bg-navy near-white">
-  <a routerLink="/" class="ph4 pv3 f2 b near-white no-underline dib">Nuts n Bolts</a>
+<div class="bg-navy near-white" role="navigation">
+  <a routerLink="/" class="ph4 pv3 f2 b near-white no-underline dib" aria-label="home-icon">Nuts n Bolts</a>
 </div>
 <nav class="bg-light-gray ph2 flex" aria-label="Main Navigation">
 <a *ngFor="let link of navLinks" [routerLink]="link.url" class="mh2 pa3 link underline navy hover-blue no-underline" [ngClass]="{'absolute right-1': link.right}">{{ link.name }}</a>

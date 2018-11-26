@@ -1,3 +1,8 @@
-<p id="about-para">
-  about works!
-</p>
+<div class="mh4" role="main">
+  <button class="fixed ph3 pv2 br2 bg-navy near-white bottom-0 right-0 dim pointer" (click)="toggleAccessibility()">Toggle A11y</button>
+  <h1>Introduction</h1>
+  <div class="fl mh4 mb4 pa1 ba b--blue bw1 shadow-5">
+    <iframe class="bn" title="about-video" src="https://www.youtube.com/embed/zVLA8fvBczg" allowfullscreen></iframe>
+  </div>
+  <p *ngFor="let para of aboutPara" class="ma3">{{ para }}</p>
+</div>
