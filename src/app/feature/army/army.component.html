@@ -1,7 +1,7 @@
 <div class="mh4" role="main">
   <button class="fixed ph3 pv2 br2 bg-navy near-white bottom-0 right-0 dim pointer" (click)="toggleAccessibility()">Toggle A11y</button>
   <ng-container *ngIf="accessibleExample; else inaccessibleExample">
-    <h1 class="f3">Your Robot Army</h1>
+    <h1 class="f3">Your Robot Army </h1>
     <ol class="list pl0 flex flex-wrap justify-center">
         <li *ngFor="let robot of robotArmy; let i = index" class="flip-card w-25 ma3 pointer" tabindex="0" [ngClass]="{'flipped': robot.flipped}" (click)="flipCard(i)" (keydown.enter)="flipCard(i)" (keydown.space)="flipCard(i, $event, true)">
             <div class="flip-card-inner relative w-100 h-100 ba br4 b--blue bw1 bg-washed-blue">
