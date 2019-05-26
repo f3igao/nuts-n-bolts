@@ -2,7 +2,7 @@
   "standard": "WCAG2AA",
   "level": "error",
   "defaults": {
-    "timeout": 30000,
+    "timeout": 8000,
     "threshold": 2
   },
   "urls": [
