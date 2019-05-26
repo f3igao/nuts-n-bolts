@@ -1,0 +1,8 @@
+Running Pa11y on 10 URLs:
+ > http://csv - 1 errors (within threshold of 2)
+ > http://localhost:4200 - 0 errors (within threshold of 2)
+ > http://localhost:4200/login/good - 1 errors (within threshold of 2)
+ > http://localhost:4200/register/good - 1 errors (within threshold of 2)
+ > http://localhost:4200/army/good - 0 errors (within threshold of 2)
+ > http://localhost:4200/todo/good - 0 errors (within threshold of 2)
+ > http://localhost:4200/todo/bad - 0 errors (within threshold of 2)
