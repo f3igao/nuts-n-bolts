@@ -8,7 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "pa11y-ci": "pa11y-ci 'http://localhost:4200/*.html'"
+    "pa11y": "wait-on http-get://localhost:4200 && pa11y - standard WCAG2AA http://localhost:4200",
+    "pa11y-ci": "wait-on http-get://localhost:4200 && pa11y-ci",
+    "pa11y-ci:sitemap": "wait-on http-get://localhost:4200 && wait-on http-get://localhost:8080 && pa11y-ci - sitemap http://localhost:8080",
+    "sitemap": "http-server src/assets/lfm_sitemap.xml",
+    "a11y-check": "npm-run-all -p -r start sitemap pa11y-ci:sitemap"
   },
   "private": true,
   "dependencies": {
