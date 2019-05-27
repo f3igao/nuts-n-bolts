@@ -2,12 +2,16 @@
   "standard": "WCAG2AA",
   "level": "error",
   "defaults": {
-    "timeout": 8000,
+    "timeout": 5000,
     "threshold": 2
   },
+  "ignore": [
+    "WCAG2AA.Principle1.Guideline1_1.1_1_1.H37"
+  ],
   "urls": [
     {
       "url": "http://localhost:4200",
+      "timeout": 8000,
       "screenCapture": "pa11y-screenshots/home.png"
     },
     {
