@@ -10,9 +10,9 @@
     "e2e": "ng e2e",
     "pa11y": "wait-on http-get://localhost:4200 && pa11y - standard WCAG2AA http://localhost:4200",
     "pa11y-ci": "wait-on http-get://localhost:4200 && pa11y-ci",
-    "pa11y-ci:sitemap": "wait-on http-get://localhost:4200 && wait-on http-get://localhost:8080 && pa11y-ci - sitemap http://localhost:8080",
-    "sitemap": "http-server src/assets/lfm_sitemap.xml",
-    "a11y-check": "npm-run-all -p -r start sitemap pa11y-ci:sitemap"
+    "pa11y-ci:sitemap": "wait-on http-get://localhost:4200 && wait-on http-get://localhost:8080 && pa11y-ci --sitemap http://localhost:8080",
+    "sitemap": "http-server src/assets/nuts-n-bolts_sitemap.xml",
+    "a11y-check": "npm-run-all -p start sitemap pa11y-ci:sitemap"
   },
   "private": true,
   "dependencies": {

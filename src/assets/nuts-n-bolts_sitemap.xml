@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>http://localhost:4200</loc><priority>0.5</priority></url>
-<url><loc>http://localhost:4200/register</loc><priority>0.5</priority></url>
-<url><loc>http://localhost:4200/army</loc><priority>0.5</priority></url>
-<url><loc>http://localhost:4200/todo</loc><priority>0.5</priority></url>
-<url><loc>http://localhost:4200/login</loc><priority>0.5</priority></url>
+<url><loc>http://localhost:4200/register/good</loc><priority>0.5</priority></url>
+<url><loc>http://localhost:4200/register/bad</loc><priority>0.5</priority></url>
+<url><loc>http://localhost:4200/army/good</loc><priority>0.5</priority></url>
+<url><loc>http://localhost:4200/army/bad</loc><priority>0.5</priority></url>
+<url><loc>http://localhost:4200/todo/good</loc><priority>0.5</priority></url>
+<url><loc>http://localhost:4200/todo/bad</loc><priority>0.5</priority></url>
+<url><loc>http://localhost:4200/login/good</loc><priority>0.5</priority></url>
+<url><loc>http://localhost:4200/login/bad</loc><priority>0.5</priority></url>
 </urlset>
