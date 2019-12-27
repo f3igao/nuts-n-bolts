@@ -1,27 +1,8 @@
 # Nuts n Bolts
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
+This is a demo project that shows the importance of building web apps with accessibility (a11y) in mind. Each of the tabs includes two variations - an accessibile version and an inaccessible one - available via the toggle botton in the bottom right corner. While both appear the same from a visual perspective, the difference in the underlying structures provide drastically different experiences for users who rely on voice technologies or keyboard shortcuts.
 
-## Development server
+For more info on a11y and relevant tools, take a look at my blog posts:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- [Internet for Everybody](https://medium.com/@f3igao/an-internet-for-everybody-2f8fa48b87b0): what is web accessibility and why you should care
+- [How to Automate Web Accessibility Testing](https://medium.com/@f3igao/how-to-automate-web-accessibility-testing-921512bdd4bf): and make it part of your continuous integration pipeline
