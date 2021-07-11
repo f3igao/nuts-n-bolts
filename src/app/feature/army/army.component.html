@@ -2,8 +2,13 @@
   <button class="fixed ph3 pv2 br2 bg-navy near-white bottom-0 right-0 dim pointer" (click)="toggleAccessibility()">Toggle A11y</button>
   <ng-container *ngIf="accessibleExample; else inaccessibleExample">
     <h1 class="f3">Your Robot Army </h1>
+    <ul>
+      <li>List items are in proper structure</li>
+      <li>Ability to navigate through robots using Tab key, and flip using Enter key</li>
+      <li>Images contain alt text</li>
+    </ul>
     <ol class="list pl0 flex flex-wrap justify-center">
-        <li *ngFor="let robot of robotArmy; let i = index" class="flip-card w-25 ma3 pointer" tabindex="0" [ngClass]="{'flipped': robot.flipped}" (click)="flipCard(i)" (keydown.enter)="flipCard(i)" (keydown.space)="flipCard(i, $event, true)">
+        <li *ngFor="let robot of robotArmy; let i = index" class="flip-card w-25 ma3 pointer" tabindex="0" [ngClass]="{'flipped': robot.flipped}" (click)="flipCard(i)" (keydown.enter)="flipCard(i)">
             <div class="flip-card-inner relative w-100 h-100 ba br4 b--blue bw1 bg-washed-blue">
               <div class="flip-card-front absolute w-100 h-100 pa2 overflow-y-scroll">
                 <span class="f6 fw6 mb0 tc">{{ robot.name}}</span>
@@ -29,6 +34,11 @@
   </ng-container>
   <ng-template #inaccessibleExample>
       <h1 class="f3">Your (Inaccessible) Robot Army</h1>
+      <ul>
+        <li>List items are not contained in parent structure</li>
+        <li>Cannot to navigate through robots using Tab key</li>
+        <li>Images contain do not include alt text</li>
+      </ul>
       <div class="flex flex-wrap justify-center">
         <div *ngFor="let robot of robotArmy; let i = index" class="flip-card w-25 ma3 pointer" [ngClass]="{'flipped': robot.flipped}" (click)="flipCard(i)">
           <div class="flip-card-inner relative w-100 h-100 ba br4 b--blue bw1 bg-washed-blue">

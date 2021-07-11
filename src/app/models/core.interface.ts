@@ -1,4 +1,4 @@
-export class INavLink {
+export interface INavLink {
   name: string;
   url: string;
   right: boolean;

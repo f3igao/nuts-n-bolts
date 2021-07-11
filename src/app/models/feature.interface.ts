@@ -1,11 +1,11 @@
-export class IOption {
+export interface IOption {
   id: number;
   name: string;
   value: string;
   selected?: boolean;
 }
 
-export class IRobot {
+export interface IRobot {
   name: string;
   dob: string;
   intel: string;
@@ -16,7 +16,7 @@ export class IRobot {
   flipped?: boolean;
 }
 
-export class ITodo {
+export interface ITodo {
   completed: boolean;
   id: number;
   title: string;

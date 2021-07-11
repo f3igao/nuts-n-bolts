@@ -7,31 +7,29 @@ import * as faker from 'faker';
 @Component({
   selector: 'app-army',
   templateUrl: './army.component.html',
-  styleUrls: ['./army.component.scss']
+  styleUrls: ['./army.component.scss'],
 })
 export class ArmyComponent implements OnInit {
-  accessibleExample: boolean;
+  accessibleExample = true;
   robotArmy: IRobot[] = [];
   navigationSubscription;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router
-    ) {
-      this.navigationSubscription = this.router.events.subscribe((event: any) => {
-        // subscribe to route change; re-initalise the component on a NavigationEnd event
-        if (event instanceof NavigationEnd) {
-          this.accessibleExample = route.snapshot.params.status === 'good' ? true : false;
-        }
-      });
-    }
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.navigationSubscription = this.router.events.subscribe((event: any) => {
+      // subscribe to route change; re-initalise the component on a NavigationEnd event
+      if (event instanceof NavigationEnd) {
+        this.accessibleExample =
+          route.snapshot.params.status === 'good' ? true : false;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.buildRobotArmy();
   }
 
   buildRobotArmy(): void {
-    const randomCount = Math.floor(Math.random() * 20) + 2;  // a random integer from 2 to 20
+    const randomCount = Math.floor(Math.random() * 20) + 2; // a random integer from 2 to 20
     for (let i = 0; i < randomCount; i++) {
       this.robotArmy.push(this.buildRobot());
     }
@@ -55,17 +53,14 @@ export class ArmyComponent implements OnInit {
 
   buildCapabilities(): string[] {
     const capabilities = [];
-    const randomCount = Math.floor(Math.random() * 10) + 1;  // a random integer from 1 to 10
+    const randomCount = Math.floor(Math.random() * 10) + 1; // a random integer from 1 to 10
     for (let i = 0; i < randomCount; i++) {
       capabilities.push(faker.random.word());
     }
     return capabilities;
   }
 
-  flipCard(i: number, event = null, preventDefault = false): void {
-    if (preventDefault) {
-      event.preventDefault();
-    }
+  flipCard(i: number): void {
     this.robotArmy[i].flipped = !this.robotArmy[i].flipped;
   }
 

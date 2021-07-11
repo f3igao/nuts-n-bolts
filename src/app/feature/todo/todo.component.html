@@ -2,6 +2,7 @@
 <div class="mh4">
     <ng-container *ngIf="accessibleExample; else inaccessibleExample">
       <h1 class="f3">Pending Tasks</h1>
+      <p>Use the tab key to navigate through tasks, and the Enter key to cross them out.</p>
       <ul class="mh6 mv4 ph5 pv4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center flex flex-wrap justify-between">
         <li class="pv2 w-40" *ngFor="let item of todos; let i = index" [ngClass]="{'strike': item.completed}">
             <span class="pointer" tabindex="0" (click)="markDone(i)" (keydown.enter)="markDone(i)" (keydown.space)="markDone(i, $event, true)">{{ item.title }}</span>
@@ -10,6 +11,7 @@
     </ng-container>
     <ng-template #inaccessibleExample>
       <h1 class="f3">Pending Tasks that May Never Get Done</h1>
+      <p>Use the tab key to navigate through tasks, and the Enter key to cross them out.</p>
       <div class="mh6 mv4 ph5 pv4 ba br4 b--blue bw1 bg-washed-blue shadow-5 w-70 center flex flex-wrap justify-between">
         <li class="pv2 w-40" *ngFor="let item of todos; let i = index" [ngClass]="{'strike': item.completed}">
             <span class="pointer" (click)="markDone(i)">{{ item.title }}</span>

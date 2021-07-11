@@ -7,7 +7,6 @@ import { INavLink } from 'src/app/models/core.interface';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   navLinks: INavLink[] = NAV_LINKS;
